@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <title>Погода</title>
 </head>
 <body>
@@ -8,16 +11,8 @@
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit" name="get_weather">Get Weather</button>
+        <button type="submit" name="get_weather">Получить погоду</button>
     </form>
-    {% if suggestions %}
-        <h2>Suggestions</h2>
-        <ul>
-            {% for suggestion in suggestions %}
-                <li>{{ suggestion }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}
     {% if weather_data %}
         <h2>Погода в {{ weather_data.city }}</h2>
         <p>Температура: {{ weather_data.current.temperature_2m }}°C</p>
@@ -30,5 +25,30 @@
             <li>{{ search.city }}</li>
         {% endfor %}
     </ul>
+
+    <script>
+        $(document).ready(function() {
+            $('#id_city').autocomplete({
+                source: function(request, response) {
+                    console.log("Sending request to autocomplete endpoint with term:", request.term);
+                    $.ajax({
+                        url: "{% url 'autocomplete' %}",
+                        dataType: "json",
+                        data: {
+                            term: request.term
+                        },
+                        success: function(data) {
+                            console.log("Received response from autocomplete endpoint:", data);
+                            response(data);
+                        },
+                        error: function(xhr, status, error) {
+                            console.error("Error fetching suggestions:", status, error);
+                        }
+                    });
+                },
+                minLength: 2,
+            });
+        });
+    </script>
 </body>
 </html>
