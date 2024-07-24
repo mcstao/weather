@@ -7,7 +7,6 @@ Meteo is a web application where users can enter the name of a city and get the 
 - Get the weather forecast for any city.
 - Autocomplete when entering the city name.
 - Save search history for each user.
-- On revisiting the site, users are prompted to view the weather in previously searched cities.
 - API to show how many times each city has been searched.
 - Tests written for key functionalities.
 - Dockerized for easy deployment.
