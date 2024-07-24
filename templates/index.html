@@ -14,7 +14,7 @@
         <button type="submit" name="get_weather">Получить погоду</button>
     </form>
     {% if weather_data %}
-        <h2>Погода в {{ weather_data.city }}</h2>
+        <h2>Погода в {{ city_name }}</h2>
         <p>Температура: {{ weather_data.current.temperature_2m }}°C</p>
         <p>Условия: Осадки {{ weather_data.current.precipitation }} мм, Скорость ветра {{ weather_data.current.wind_speed_10m }} км/ч,
             Влажность {{ weather_data.current.relative_humidity_2m }} %</p>

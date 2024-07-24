@@ -30,7 +30,7 @@ def index(request):
                 city_count.save()
 
             response = render(request, 'index.html',
-                              {'form': form, 'weather_data': weather_data, 'search_history': search_history_cookie})
+                              {'form': form, 'weather_data': weather_data, 'search_history': search_history_cookie, 'city_name': city_name})
             response.set_cookie('search_history', json.dumps(search_history_cookie), max_age=365 * 24 * 60 * 60)
             response.set_cookie('user', user, max_age=365 * 24 * 60 * 60)
             print(weather_data)
