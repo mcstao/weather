@@ -39,7 +39,7 @@ Meteo is a web application where users can enter the name of a city and get the 
 
 ### Without Docker
 
-1. Ensure you have Python 3.9 and pip installed.
+1. Ensure you have Python and pip installed.
 2. Create and activate a virtual environment:
 
     ```sh
