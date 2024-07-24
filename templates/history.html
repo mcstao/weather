@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>История поиска</title>
+</head>
+<body>
+    <h1>История поиска</h1>
+    <h2>Предыдущие поиски</h2>
+    <ul>
+        {% for search in searches %}
+            <li>{{ search.city }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Количество поиска по городам</h2>
+    <ul>
+        {% for city_count in city_counts %}
+            <li>{{ city_count.city }}: {{ city_count.count }} раз</li>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'index' %}">Назад</a>
+</body>
+</html>

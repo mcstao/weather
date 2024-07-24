@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'weather',
 
     # Third-party apps
+    'cities_light'
 ]
 
 MIDDLEWARE = [
