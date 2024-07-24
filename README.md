@@ -25,6 +25,7 @@ Meteo is a web application where users can enter the name of a city and get the 
 
    ```sh
    git clone https://github.com/mcstao/weather.git
+   ```
 
 ### Using Docker
 
@@ -72,6 +73,7 @@ Run tests with the following command:
 
 ```sh
 python manage.py test
+```
 
 
 ### Author
